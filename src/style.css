@@ -7,3 +7,5 @@
 @media(max-width:430px){.tiles{grid-template-columns:1fr}.pixel-name{max-width:280px}.tiles article{padding:18px}footer{font-size:.65rem}}
 @media(prefers-reduced-motion:reduce){:root{scroll-behavior:auto}.is-visible{animation:none}}
 .fallback{height:100%;display:grid;align-content:center;justify-items:center;gap:10px;text-align:center;color:var(--muted)}
+.project + .project { margin-top: 1rem; }
+.recycling-art { color: var(--mint); font: bold 4rem/1 system-ui, sans-serif; }

@@ -9,3 +9,34 @@
 .fallback{height:100%;display:grid;align-content:center;justify-items:center;gap:10px;text-align:center;color:var(--muted)}
 .project + .project { margin-top: 1rem; }
 .recycling-art { color: var(--mint); font: bold 4rem/1 system-ui, sans-serif; }
+
+/* The strip follows the reader's scroll position. */
+.motion-strip { overflow: hidden; margin-top: 24px; color: #18251c; background: var(--mint); }
+.strip-track { display: flex; width: max-content; font: 900 clamp(26px, 4vw, 72px)/1.5 system-ui,sans-serif; letter-spacing: -.045em; }
+.strip-track span { white-space: pre; min-width: 100vw; text-align: center; }
+@supports (animation-timeline: view()) {
+  .strip-track { animation: strip-travel linear both; animation-timeline: view(); }
+  @keyframes strip-travel { to { transform: translateX(-35%); } }
+}
+.view-controls,.project-controls { display: flex; gap: 8px; align-items: center; margin-bottom: 18px; }
+.view-controls button,.project-controls button { background: #182329; color: var(--ink); border: 1px solid var(--line); padding: 9px 14px; cursor: pointer; }
+.view-controls button[aria-pressed="true"] { background: var(--mint); color: #14241b; }
+.project-controls output { padding: 0 8px; font-family: monospace; }
+.project-controls button:disabled { opacity: .45; cursor: default; }
+.tiles.list-view { grid-template-columns: 1fr; }
+.tiles.list-view article { display: grid; grid-template-columns: 3rem minmax(8rem,1fr) 2fr; align-items: center; gap: 10px; }
+.tiles.list-view h3 { margin: 0; }
+.project-track { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; }
+.project-track .project { flex: 0 0 100%; min-width: 0; scroll-snap-align: start; margin: 0; }
+.project-track .project-art { min-height: 200px; }
+@media (max-width: 540px) {
+  .tiles.list-view article { grid-template-columns: 2.5rem 1fr; }
+  .tiles.list-view p { grid-column: 2; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .intro h1,.intro .role,.intro .description { animation: intro-rise .7s both; }
+  .intro .role { animation-delay: .1s; }
+  .intro .description { animation-delay: .18s; }
+  @keyframes intro-rise { from { opacity: 0; transform: translateY(18px); } }
+}
+@media (prefers-reduced-motion: reduce) { .strip-track { animation: none; } }

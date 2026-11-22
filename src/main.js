@@ -206,3 +206,52 @@ function setupVoxelCharacter(host) {
 }
 
 
+
+const skillTiles = document.querySelector('#skill-tiles')
+const layouts = document.querySelectorAll('[data-layout]')
+for (const button of layouts) {
+  button.addEventListener('click', () => {
+    const cards = Array.from(skillTiles.children)
+    const previous = cards.map(card => card.getBoundingClientRect())
+    skillTiles.classList.toggle('list-view', button.dataset.layout === 'list')
+    for (const option of layouts) option.setAttribute('aria-pressed', String(option === button))
+    if (motionReduced.matches) return
+    cards.forEach((card, i) => {
+      const next = card.getBoundingClientRect()
+      card.animate([
+        { transform: 'translate(' + (previous[i].left - next.left) + 'px,' + (previous[i].top - next.top) + 'px)' },
+        { transform: 'none' }
+      ], { duration: 280, easing: 'ease-out' })
+    })
+  })
+}
+
+const track = document.querySelector('.project-track')
+const projectCards = Array.from(track.children)
+const steps = document.querySelectorAll('[data-step]')
+const counter = document.querySelector('.project-controls output')
+function projectIndex() {
+  const left = track.getBoundingClientRect().left
+  return projectCards.reduce((nearest, card, i) =>
+    Math.abs(card.getBoundingClientRect().left - left) <
+    Math.abs(projectCards[nearest].getBoundingClientRect().left - left) ? i : nearest, 0)
+}
+function updateProjectControls() {
+  const index = projectIndex()
+  const label = (index + 1) + ' / ' + projectCards.length
+  if (counter.value !== label) counter.value = label
+  steps[0].disabled = index === 0
+  steps[1].disabled = index === projectCards.length - 1
+}
+for (const button of steps) {
+  button.addEventListener('click', () => {
+    const next = projectCards[projectIndex() + Number(button.dataset.step)]
+    if (next) track.scrollBy({
+      left: next.getBoundingClientRect().left - track.getBoundingClientRect().left,
+      behavior: motionReduced.matches ? 'instant' : 'smooth'
+    })
+  })
+}
+track.addEventListener('scroll', updateProjectControls, { passive: true })
+new ResizeObserver(updateProjectControls).observe(track)
+updateProjectControls()

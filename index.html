@@ -1,8 +1,70 @@
 <!doctype html>
-<html lang="ko"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#0C0C0C"><meta name="description" content="이상현의 기술과 개인·팀 프로젝트를 소개합니다.">
-<title>이상현 | 포트폴리오</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800;900&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-</head><body><div id="root"></div><script type="module" src="./src/main.tsx"></script></body></html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="한국외국어대학교 컴퓨터공학부 이상현의 기술, 프로젝트와 활동 기록">
+  <title>이상현 | 포트폴리오</title>
+  <link rel="stylesheet" href="./src/style.css">
+  <script type="module" src="./src/main.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="container" aria-label="주요 메뉴">
+      <a href="#about" aria-current="location">About</a>
+      <a href="#skills">Tech Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#activities">Activities</a>
+    </nav>
+  </header>
+  <main class="container">
+    <section id="about" class="intro" aria-labelledby="name">
+      <div>
+        <h1 id="name">이상현 <span lang="en">LEESANGHYUN</span></h1>
+        <p class="intro-lead">배운 내용을 코드로 옮기고, 작은 아이디어를 웹과 게임으로 만듭니다.</p>
+        <p>한국외국어대학교 글로벌캠퍼스 컴퓨터공학부 2학년 이상현입니다.<br>웹 프로그래밍과 알고리즘을 배우고 있습니다.</p>
+        <a class="button" href="https://github.com/LeeSanghyun1230">깃허브 페이지</a>
+      </div>
+      <img class="portrait" src="/art/sanghyun-avatar.webp" width="240" height="240" alt="검은 뿔테안경을 쓴 이상현의 캐리커처">
+    </section>
+
+    <section id="skills" aria-labelledby="skills-title">
+      <h2 id="skills-title">Tech Skills</h2>
+      <ul class="skills">
+        <li><h3>JavaScript</h3><p>클릭이나 마우스 움직임에 반응하는 웹 화면을 만듭니다.</p></li>
+        <li><h3>Python</h3><p>알고리즘 문제를 풀며 해결 과정을 코드로 표현합니다.</p></li>
+        <li><h3>HTML</h3><p>제목과 본문, 이미지, 링크로 페이지의 구조를 잡습니다.</p></li>
+        <li><h3>CSS</h3><p>글자와 여백을 조정하고 화면 크기에 맞게 배치를 바꿉니다.</p></li>
+      </ul>
+    </section>
+
+    <section id="projects" aria-labelledby="projects-title">
+      <h2 id="projects-title">Projects</h2>
+      <article class="project">
+        <div><small>개인 작업</small><h3>포트폴리오 페이지</h3></div>
+        <div><p>제가 배우는 기술과 참여한 프로젝트를 소개하는 개인 웹사이트입니다. 화면 구성을 기획하고 섹션 이동과 반응형 레이아웃을 구현했습니다.</p>
+          <a class="project-link" href="https://github.com/LeeSanghyun1230/LeeSanghyun1230.github.io" aria-label="포트폴리오 페이지 프로젝트 보기">프로젝트 보기</a></div>
+      </article>
+      <article class="project">
+        <div><small>팀 프로젝트</small><h3>Catch Recycling Game</h3></div>
+        <div class="game-shots">
+          <img src="/art/game-quiz.png" loading="lazy" alt="분리수거 부활 퀴즈 화면">
+          <img src="/art/game-play.png" loading="lazy" alt="떨어지는 재활용품을 수거하는 게임 화면">
+          <img src="/art/game-choose.png" loading="lazy" alt="쓰레기 종류별 캐릭터 선택 화면">
+        </div>
+        <div class="game-description"><p>15조 엔트리 팀원들과 만든 Java 게임입니다. 게임 개발에 필요한 기술을 조사하고 팀원들과 함께 게임 코드를 작성했습니다.</p>
+          <a class="project-link" href="https://github.com/LeeSanghyun1230/Catch-Recycling-Game" aria-label="캐치 리사이클링 게임 프로젝트 보기">프로젝트 보기</a></div>
+      </article>
+    </section>
+
+    <section id="activities" aria-labelledby="activities-title">
+      <h2 id="activities-title">Activities</h2>
+      <dl class="activities">
+        <div><dt>2023 – 현재</dt><dd><h3>한국외국어대학교 컴퓨터공학부</h3><p>2학년 재학 중 · 군 복무로 2년 휴학</p></dd></div>
+        <div><dt>2026 – 현재</dt><dd><h3>그누빌</h3><p>코딩 스터디 동아리 부원으로 활동 중</p></dd></div>
+        <div><dt>2026 – 현재</dt><dd><h3>글로벌스포츠산업학부 학회 IWAY</h3><p>콘텐츠 성과 분석 리더로 활동 중</p></dd></div>
+      </dl>
+    </section>
+  </main>
+</body>
+</html>

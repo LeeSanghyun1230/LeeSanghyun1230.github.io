@@ -1,30 +1,11 @@
-# Pixel Studio · Sanghyun Lee
+# 이상현 포트폴리오
 
-Vite와 Three.js로 만든 반응형 3D 픽셀 포트폴리오입니다. HOME의 작업실에서 커서나 터치 위치를 따라 캐릭터의 머리와 몸이 움직입니다. ABOUT, SKILLS, PROJECTS, CONTACT에서 소개와 구현 내용을 볼 수 있습니다.
+자기소개, 기술, 프로젝트, 활동 기록을 한 페이지에 정리했습니다.
 
-## 로컬 실행
+- `index.html`에 본문과 사진, 링크가 있습니다. 상단 메뉴의 `href="#skills"`처럼 링크 주소와 섹션의 `id`를 맞춰 페이지 안에서 이동합니다.
+- `src/style.css`에서 색상, 간격, 사진 배치를 정합니다. 작은 화면에서는 미디어 쿼리로 열 수를 줄입니다.
+- `src/main.js`는 스크롤 위치를 확인해 현재 메뉴에 밑줄을 표시합니다.
 
-Node.js 22 환경에서 이 파일이 있는 폴더를 엽니다.
+## 실행과 배포
 
-```sh
-npm ci
-npm run dev
-```
-
-배포 빌드와 미리보기는 다음 명령으로 실행합니다.
-
-```sh
-npm run build
-npm run preview
-```
-
-## GitHub Pages
-
-대상 저장소는 `LeeSanghyun1230/LeeSanghyun1230.github.io`입니다. 이 폴더의 package.json과 .github 디렉터리가 저장소 루트에 위치해야 합니다. Settings → Pages에서 소스로 GitHub Actions를 선택하세요. master에 푸시하거나 Actions에서 워크플로를 수동 실행하면 의존성을 설치하고 dist를 빌드해 게시합니다. 사용자 사이트의 기본 경로는 /입니다.
-
-배포 주소는 [LeeSanghyun1230.github.io](https://LeeSanghyun1230.github.io/)입니다.
-
-## 프로필 README
-
-[profile/README.md](profile/README.md)는 별도 공개 프로필 저장소 `LeeSanghyun1230/LeeSanghyun1230`의 루트에 사용할 파일입니다.
-
+`npm ci` 후 `npm run dev`로 실행합니다. `npm run build`를 실행하면 Vite가 배포 파일을 `dist`에 모읍니다. GitHub Actions는 master 브랜치가 업데이트될 때 이 폴더를 GitHub Pages에 게시합니다.
